@@ -68,9 +68,10 @@
 }
 
 .layers__title {
+	width:0;
 	z-index: 3;
-	transition: var(--transition);
-	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+	/*transition: var(--transition);
+	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);*/
 }
 
 /*.layers__header {
@@ -110,18 +111,52 @@
 .layers__subheader {
 	font-size: 95px;
 }
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
+      @keyframes typing-first {
+        from { width: 0;}
+        to { width: 100%;}
       }
+      @keyframes typing-second {
+        from { width: 0; border-right: .15em solid orange; padding-right: .2em}
+        to { width: 100%;border-right: .15em solid orange; padding-right: .2em}
+      }
+      @keyframes hide-carriage {
+      	from {border-right: .15em solid orange;}
+      	to {border-right: .15em solid rgba(0,0,0,0);}
+      }
+
+
+
       .typed-out {
       	z-index:10;
       
         overflow: hidden;
-        border-right: .15em solid orange;
-   
+/*        border-right: .15em solid orange;*/
+
+/*   			padding-right: .2em;*/
         white-space: nowrap;
-        animation: typing 2s steps(12, end) forwards;
+/*        animation: 0.01s hide-carriage forwards;*/
+/*        animation-delay: 1.9s;*/
+        
+      }
+      .typed-out-first {
+      	 padding-right: .2em;
+      	        border-right: .15em solid orange;
+
+      	animation-name: typing-first, hide-carriage;
+      	animation-duration: 2s, 0.01s;
+      	animation-delay: 0s, 2s;
+      	animation-fill-mode: forwards, forwards;
+      	animation-timing-function: steps(21,end), linear;
+      }
+      .typed-out-second {
+
+
+      	animation-name: typing-second, hide-carriage;
+      	animation-duration: 2s, 0.01s;
+      	animation-delay: 0s, 2s;
+      	animation-fill-mode: forwards, forwards;
+      	animation-timing-function: steps(9,end), linear;
+      	animation-delay: 2s, 4s;
       }
 
 .title-container {
