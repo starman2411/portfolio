@@ -99,6 +99,8 @@
 	text-shadow: 5px 5px 5px black;
 	text-align: center;
 	line-height: 0.9;
+
+
 }
 
 .layers__mainheader {
@@ -108,8 +110,25 @@
 .layers__subheader {
 	font-size: 95px;
 }
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+      .typed-out {
+      	z-index:10;
+      
+        overflow: hidden;
+        border-right: .15em solid orange;
+   
+        white-space: nowrap;
+        animation: typing 2s steps(12, end) forwards;
+      }
 
-
+.title-container {
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+}
 
 /*.layers__4 {
 	transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
